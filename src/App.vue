@@ -1,15 +1,9 @@
 <template>
   <div :class="{'nav-open': $sidebar.showSidebar}">
-      <div class="jumbotron">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6 offset-sm-3">
-                    <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
-                    <router-view></router-view>
-                </div>
-            </div>
-        </div>
-    </div>
+      <div class="col-sm-6 offset-sm-3">
+          <div v-if="alert.message" :class="`alert ${alert.type}`">{{alert.message}}</div>
+      </div>
+    <router-view></router-view>
   </div>
 </template>
 
@@ -25,7 +19,7 @@ export default {
     },
     methods: {
         ...mapActions({
-            clearAlert: 'alert/clear' 
+            clearAlert: 'alert/clear'
         })
     },
     watch: {

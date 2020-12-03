@@ -1,5 +1,5 @@
 import { userService } from '../../services';
-import { router } from '../../helpers/auth-header';
+import { router } from '../../routes/router';
 
 const user = JSON.parse(localStorage.getItem('user'));
 const state = user
@@ -45,7 +45,7 @@ const mutations = {
     logout(state) {
         state.status = {};
         state.user = null;
-    },
+    }
 };
 
 export const account = {

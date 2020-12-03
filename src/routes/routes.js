@@ -5,19 +5,23 @@ import NotFound from '../pages/NotFoundPage.vue'
 // Admin pages
 import Overview from 'src/pages/Overview.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
-import TableList from 'src/pages/TableList.vue'
 import Typography from 'src/pages/Typography.vue'
 import Icons from 'src/pages/Icons.vue'
 import Maps from 'src/pages/Maps.vue'
 import Notifications from 'src/pages/Notifications.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
 import Login from 'src/pages/Login.vue'
+import UserManage from 'src/pages/UserManage.vue'
+import CustomerManage from 'src/pages/CustomerManage.vue'
+import PartnerManage from 'src/pages/PartnerManage.vue'
+import DemandManage from 'src/pages/DemandManage.vue'
+import FeedbackManage from 'src/pages/FeedbackManage.vue'
 
 const routes = [
   {
     path: '/',
     component: DashboardLayout,
-    redirect: '/login'
+    redirect: '/admin/overview'
   },
   {
     path: '/login',
@@ -34,40 +38,35 @@ const routes = [
         component: Overview
       },
       {
-        path: 'user',
-        name: 'User',
+        path: 'profile',
+        name: 'Profile',
         component: UserProfile
       },
       {
-        path: 'table-list',
-        name: 'Table List',
-        component: TableList
+        path: 'user-manage',
+        name: 'User Manage',
+        component: UserManage
       },
       {
-        path: 'typography',
-        name: 'Typography',
-        component: Typography
+        path: 'demand-manage',
+        name: 'Demand Manage',
+        component: DemandManage
       },
       {
-        path: 'icons',
-        name: 'Icons',
-        component: Icons
+        path: 'customer-manage',
+        name: 'Customer Manage',
+        component: CustomerManage
       },
       {
-        path: 'maps',
-        name: 'Maps',
-        component: Maps
+        path: 'partner-manage',
+        name: 'partner Manage',
+        component: PartnerManage
       },
       {
-        path: 'notifications',
-        name: 'Notifications',
-        component: Notifications
+        path: 'feedback-manage',
+        name: 'Feedback Manage',
+        component: FeedbackManage
       },
-      {
-        path: 'upgrade',
-        name: 'Upgrade to PRO',
-        component: Upgrade
-      }
     ]
   },
   { path: '*', component: NotFound }

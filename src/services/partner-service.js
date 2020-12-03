@@ -4,39 +4,13 @@ import { authHeader } from '../helpers/auth-header';
 const mode = config.mode;
 const BASE_URL = config[mode].SERVER_URL;
 
-export const userService = {
-    login,
-    logout,
+export const partnerService = {
     getAll,
     getById,
     update,
     delete: _delete
 };
 
-function login(email, password) {
-    const requestOptions = {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password })
-    };
-
-    return fetch(`${BASE_URL}/login`, requestOptions)
-        .then(handleResponse)
-        .then(user => {
-            // login thành công nếu có một token jwt trong response
-            if (user.token) {
-                // lưu dữ liệu user và token jwt vào local storage để giữ user được log in trong page
-                localStorage.setItem('user', JSON.stringify(user));
-            }
-
-            return user;
-        });
-}
-
-function logout() {
-    // xoá user từ local storage để log out
-    localStorage.removeItem('user');
-}
 
 function getAll() {
     const requestOptions = {
@@ -46,7 +20,7 @@ function getAll() {
 
     console.log("requestOptions", requestOptions);
 
-    return fetch(`${BASE_URL}/users`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/partners`, requestOptions).then(handleResponse);
 }
 
 
@@ -56,7 +30,7 @@ function getById(id) {
         headers: authHeader()
     };
 
-    return fetch(`${BASE_URL}/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/partners/${id}`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
@@ -66,7 +40,7 @@ function update(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`${BASE_URL}/users/${user.id}`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/partners/${user.id}`, requestOptions).then(handleResponse);
 }
 
 function _delete(id) {
@@ -75,12 +49,12 @@ function _delete(id) {
         headers: authHeader()
     };
 
-    return fetch(`${BASE_URL}/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/partners/${id}`, requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
     return response.text().then(text => {
-        console.log("handleResponse = ", text);
+        console.log("handleResponse partners = ", text);
         const data = text && JSON.parse(text);
         if (!response.ok) {
             if (response.status === 401) {
