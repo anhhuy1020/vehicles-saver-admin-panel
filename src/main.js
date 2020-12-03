@@ -22,6 +22,7 @@ import LightBootstrap from './light-bootstrap-main'
 
 // router setup
 import routes from './routes/routes'
+import {store} from './store'
 
 import './registerServiceWorker'
 // plugin setup
@@ -40,10 +41,22 @@ const router = new VueRouter({
     }
   }
 })
+router.beforeEach((to, from, next) => {
+  // chuyển đến trang login nếu chưa được login
+  const publicPages = ['/login'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('user');
 
+  if (authRequired && !loggedIn) {
+    return next('/login');
+  }
+
+  next();
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   render: h => h(App),
+  store,
   router
 })
