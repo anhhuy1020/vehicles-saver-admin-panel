@@ -1,7 +1,7 @@
 import { userService } from '../../services';
 import { router } from '../../routes/router';
 
-const state = {users: []}
+const state = {users: [], userDetail: {}}
 
 const actions = {
     getAll({ dispatch, commit }) {
@@ -15,13 +15,35 @@ const actions = {
             }
         );
 
+    },
+    getUserDetail({ dispatch, commit }, {id}) {
+        userService.getById(id)
+        .then(
+            userDetail => {
+                let demands = userDetail.history;
+                for (let key in demands){
+                    let demand = demands[key];
+                    let status = demand.status;
+                    demand.demandStatus = status;
+                    delete demand.status;
+                }
+                commit('SAVE_USER_DETAIL', userDetail);
+            },
+            error => {
+                dispatch('alert/error', error, { root: true });
+            }
+        );
+
     }
 };
 
 const mutations = {
     SAVE_USERS(state, users) {
         state.users = users;
-      }
+      },
+    SAVE_USER_DETAIL(state, userDetail) {
+        state.userDetail = userDetail;
+    }
 };
 
 export const users = {

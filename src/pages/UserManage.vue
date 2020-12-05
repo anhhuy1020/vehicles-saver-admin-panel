@@ -7,29 +7,15 @@
                     <card>
                         <b-table thead-class="b-table-thead" thead-tr-class="b-table-thead-tr" :items="users.users" :fields="fields" responsive="sm" class="table table-hover table-primary table-light table-sm">
                             <template v-slot:cell(_)="data">
-                                <button @click="viewSupport(data.item._id, data.item.userId)" class="btn btn-info">
+                                <button @click="viewDetail(data.item._id)" class="btn btn-info">
                                     View
                                 </button>
                             </template>
 
-                            <template v-slot:cell(status)="data">
-                                <b-badge :variant="renderStatus(data.item.status).variant"> {{renderStatus(data.item.status).text }}</b-badge>
-                            </template>
-
-                            <template v-slot:cell(dateUpdate)="data">
-                                {{new Date(data.item.dateUpdate || data.item.dateStart).toDateString()}}
-                            </template>
-
-                            <template v-slot:cell(dateStart)="data">
-                                {{new Date(data.item.dateStart || data.item.dateStart).toDateString()}}
-                            </template>
-
-                            <template v-slot:cell(type)="data">
-                                {{listTypeLabel[data.item.type + 1]}}
-                            </template>
-
-                            <template v-slot:cell(isRead)="data">
-                                {{data.item.isRead? "YES" : "NO"}}
+                            <template v-slot:cell(role)="data">
+                                <span :class="['user-role-' + data.item.role]">
+                                    {{ROLE[data.item.role]}}
+                                    </span>
                             </template>
 
                         </b-table>
@@ -47,10 +33,16 @@ import {
     mapState,
     mapActions
 } from 'vuex'
+import router from '../routes/router'
 
 export default {
     data() {
         return {
+            ROLE: {
+                0: "ADMIN",
+                1: "PARTNER",
+                2: "CUSTOMER"
+            },
             fields: [{
                     key: '_id',
                     sortable: true,
@@ -71,22 +63,35 @@ export default {
                     sortable: true,
                     label: "Role"
                 },
+                {key: '_', sortable: false, label: "Detail"},
             ]
-                    }
+        }
     },
-    methods:{
-      ...mapActions('users', ['getAll']),
+    methods: {
+        ...mapActions('users', ['getAll']),
+        viewDetail(userId){
+            router.push({ path: 'user-detail', query: { id: userId } })
+        }
     },
     computed: {
-      ...mapState('users',['users'])
-      },
+        ...mapState('users', ['users'])
+    },
     created() {
-      this.getAll();
+        this.getAll();
     }
 }
 </script>
 
 <style>
+.user-role-0 {
+    color: crimson;
+}
+.user-role-1 {
+    color: #D6C624 ;
+}
+.user-role-2     {
+    color: #24D66A ;
+}
 .c-sliding-pagination__list li {
     display: inline-block !important;
     height: 40px;

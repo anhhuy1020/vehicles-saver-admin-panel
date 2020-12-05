@@ -56,7 +56,7 @@ function getById(id) {
         headers: authHeader()
     };
 
-    return fetch(`${BASE_URL}/users/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/user-detail/:id?id=${id}`, requestOptions).then(handleResponse);
 }
 
 function update(user) {
@@ -66,7 +66,7 @@ function update(user) {
         body: JSON.stringify(user)
     };
 
-    return fetch(`${BASE_URL}/users/${user.id}`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/users/id?=${user.id}`, requestOptions).then(handleResponse);
 }
 
 function _delete(id) {

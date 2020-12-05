@@ -8045,16 +8045,16 @@ star {
 }
 .card-user .image img {
   width: 100%;
-  height: 150px;
+  height: 200px;
 }
 .card-user .image-plain {
   height: 0;
   margin-top: 110px;
 }
 .card-user .author {
-  text-align: center;
+  text-align: l;
   text-transform: none;
-  margin-top: -65px;
+  margin-top: 0px;
 }
 .card-user .author .card-title {
   color: #484541;

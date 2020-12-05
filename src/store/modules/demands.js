@@ -15,7 +15,6 @@ const actions = {
                     demand.demandStatus = status;
                     delete demand.status;
                 }
-                console.log("demands 2 === ", demands)
 
                 commit('SAVE_DEMANDS', demands);
             },

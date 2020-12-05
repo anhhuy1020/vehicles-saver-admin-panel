@@ -32,5 +32,5 @@ module.exports = {
     // Enable CSS source maps.
     sourceMap: process.env.NODE_ENV !== 'production'
   },
-  publicPath:'/vehicles-saver-admin-panel/'
+  publicPath:process.env.NODE_ENV === 'production'?'/vehicles-saver-admin-panel/':""
 };
