@@ -13,7 +13,7 @@ npm run build
 
 git init
 git add -A
-git commit -m "deploy"
+git commit --allow-empty -m "Trigger rebuild"
 git push -f https://github.com/anhhuy1020/vehicles-saver-admin-panel.git master:gh-pages
 
 

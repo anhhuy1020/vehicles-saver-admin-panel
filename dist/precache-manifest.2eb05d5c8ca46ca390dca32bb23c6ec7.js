@@ -20,12 +20,12 @@ self.__precacheManifest = [
     "url": "/vehicles-saver-admin-panel/js/chunk-vendors.e7c7d51e.js"
   },
   {
-    "revision": "8224e0160e362e117cbe00495919e2af",
-    "url": "/vehicles-saver-admin-panel/fonts/nucleo-icons.8224e016.eot"
-  },
-  {
     "revision": "ff208b8d733e61a630992ee2b72c9c1c",
     "url": "/vehicles-saver-admin-panel/fonts/nucleo-icons.ff208b8d.woff2"
+  },
+  {
+    "revision": "8224e0160e362e117cbe00495919e2af",
+    "url": "/vehicles-saver-admin-panel/fonts/nucleo-icons.8224e016.eot"
   },
   {
     "revision": "b0dc05d015e91e7d28d79cd0056fe555",
@@ -44,12 +44,16 @@ self.__precacheManifest = [
     "url": "/vehicles-saver-admin-panel/.gitkeep"
   },
   {
-    "revision": "996d8248f580f8e26e6c45c67da9b5a6",
-    "url": "/vehicles-saver-admin-panel/favicon.png"
+    "revision": "a9615bac158705203261e8348f574cc8",
+    "url": "/vehicles-saver-admin-panel/img/faces/face-0.jpg"
   },
   {
     "revision": "a9615bac158705203261e8348f574cc8",
     "url": "/vehicles-saver-admin-panel/img/default-avatar.png"
+  },
+  {
+    "revision": "996d8248f580f8e26e6c45c67da9b5a6",
+    "url": "/vehicles-saver-admin-panel/favicon.png"
   },
   {
     "revision": "99e58416b89637502b40ac8350eed85a",
@@ -60,20 +64,24 @@ self.__precacheManifest = [
     "url": "/vehicles-saver-admin-panel/img/faces/face-2.jpg"
   },
   {
-    "revision": "a9615bac158705203261e8348f574cc8",
-    "url": "/vehicles-saver-admin-panel/img/faces/face-0.jpg"
+    "revision": "ce7a6b79aa55041f7ae36f6ce22231fe",
+    "url": "/vehicles-saver-admin-panel/img/faces/face-3.jpg"
   },
   {
     "revision": "be74132f42ae1d3502f9a9b9fff68ac1",
     "url": "/vehicles-saver-admin-panel/Dashboard.PNG"
   },
   {
+    "revision": "4ab22eca4053c14a34e4bdb6390deae9",
+    "url": "/vehicles-saver-admin-panel/img/faces/face-5.jpg"
+  },
+  {
     "revision": "0b68eb8f1cde1fc9987a9196df05b96a",
     "url": "/vehicles-saver-admin-panel/img/faces/face-4.jpg"
   },
   {
-    "revision": "4ab22eca4053c14a34e4bdb6390deae9",
-    "url": "/vehicles-saver-admin-panel/img/faces/face-5.jpg"
+    "revision": "43b98081492ac3bcb4a1fac6cf709403",
+    "url": "/vehicles-saver-admin-panel/img/faces/tim_vector.jpe"
   },
   {
     "revision": "4b87e628f4ef9988718860890b2a682f",
@@ -84,16 +92,8 @@ self.__precacheManifest = [
     "url": "/vehicles-saver-admin-panel/img/faces/face-7.jpg"
   },
   {
-    "revision": "43b98081492ac3bcb4a1fac6cf709403",
-    "url": "/vehicles-saver-admin-panel/img/faces/tim_vector.jpe"
-  },
-  {
     "revision": "996d8248f580f8e26e6c45c67da9b5a6",
     "url": "/vehicles-saver-admin-panel/img/favicon.png"
-  },
-  {
-    "revision": "ce7a6b79aa55041f7ae36f6ce22231fe",
-    "url": "/vehicles-saver-admin-panel/img/faces/face-3.jpg"
   },
   {
     "revision": "0a337c37f03c0462996b7b03758fa72b",
@@ -108,20 +108,24 @@ self.__precacheManifest = [
     "url": "/vehicles-saver-admin-panel/img/new_logo.png"
   },
   {
-    "revision": "cd253e23ed052deeb80b42d2ed772183",
-    "url": "/vehicles-saver-admin-panel/img/sidebar-3.jpg"
+    "revision": "6be21e8a1b7d63048728851c6003e189",
+    "url": "/vehicles-saver-admin-panel/img/sidebar-1.jpg"
+  },
+  {
+    "revision": "897b4cf909210560a84398d36da51983",
+    "url": "/vehicles-saver-admin-panel/img/sidebar-4.jpg"
   },
   {
     "revision": "7a4ce7cc040fc1cb8176cde106e9232f",
     "url": "/vehicles-saver-admin-panel/img/sidebar-2.jpg"
   },
   {
-    "revision": "9ebea76ee1225f00d882b21547a7b49f",
-    "url": "/vehicles-saver-admin-panel/img/sidebar-5.jpg"
+    "revision": "cd253e23ed052deeb80b42d2ed772183",
+    "url": "/vehicles-saver-admin-panel/img/sidebar-3.jpg"
   },
   {
-    "revision": "897b4cf909210560a84398d36da51983",
-    "url": "/vehicles-saver-admin-panel/img/sidebar-4.jpg"
+    "revision": "9ebea76ee1225f00d882b21547a7b49f",
+    "url": "/vehicles-saver-admin-panel/img/sidebar-5.jpg"
   },
   {
     "revision": "44bf13a71a4db6e15913fe8af9296711",
@@ -134,9 +138,5 @@ self.__precacheManifest = [
   {
     "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/vehicles-saver-admin-panel/robots.txt"
-  },
-  {
-    "revision": "6be21e8a1b7d63048728851c6003e189",
-    "url": "/vehicles-saver-admin-panel/img/sidebar-1.jpg"
   }
 ];
