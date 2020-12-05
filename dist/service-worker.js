@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/vehicles-saver-admin-panel/precache-manifest.f8b8dfb18ca9c12f911b1721fc6bbcce.js"
+  "/precache-manifest.bca8cddc53aa0a77240512b7296adaaa.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "vue-light-bootstrap-dashboard"});
+workbox.core.setCacheNameDetails({prefix: "vehicles-saver-admin-panel"});
 
 /**
  * The workboxSW.precacheAndRoute() method efficiently caches and responds to
