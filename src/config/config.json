@@ -1,6 +1,6 @@
 {
     "mode": "dev",
     "dev": {
-        "SERVER_URL": "http://localhost:3001/admin"
+        "SERVER_URL": "hhttps://vehicle-saver.herokuapp.com/admin"
     }
 }

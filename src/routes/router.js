@@ -5,6 +5,7 @@ import routes from './routes';
 Vue.use(Router);
 
 export const router = new Router({
+    mode: "history",
     routes, // short for routes: routes
     linkActiveClass: 'nav-item active',
     scrollBehavior: (to) => {
