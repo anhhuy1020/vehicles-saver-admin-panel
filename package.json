@@ -1,5 +1,5 @@
 {
-  "name": "vue-light-bootstrap-dashboard",
+  "name": "vehicles-saver-admin-panel",
   "version": "2.0.0",
   "private": true,
   "description": "VS Admin Panel",
@@ -10,7 +10,8 @@
     "e2e": "node test/e2e/runner.js",
     "lint": "vue-cli-service lint",
     "dev": "vue-cli-service serve --open",
-    "lint-fix": "vue-cli-service lint --fix"
+    "lint-fix": "vue-cli-service lint --fix",
+    "deploy": "node gh-pages-deploy.js"
   },
   "dependencies": {
     "bootstrap": "^4.3.1",
@@ -34,7 +35,8 @@
     "@vue/cli-service": "^3.4.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0",
-    "vue-template-compiler": "^2.6.6"
+    "vue-template-compiler": "^2.6.6",
+    "execa": "latest"
   },
   "browserslist": [
     "> 1%",
