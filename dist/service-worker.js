@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/vehicles-saver-admin-panel/precache-manifest.f63b8f1f4a405125a3f6fbde9240914b.js"
+  "/vehicles-saver-admin-panel/precache-manifest.4559760d4ed3594c2d6357f16feaea9e.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "vehicles-saver-admin-panel"});
