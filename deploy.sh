@@ -11,8 +11,10 @@ npm run build
 # if you are deploying to a custom domain
 # echo 'www.example.com' > CNAME
 
-git add dist && git commit -m "Initial dist subtree commit"
+git init
+git add -A
+git commit -m "deploy"
+git push -f https://github.com/anhhuy1020/vehicles-saver-admin-panel.git master:gh-pages
 
-git subtree push -f --prefix dist origin gh-pages
 
 cd -
