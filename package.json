@@ -4,6 +4,7 @@
   "private": true,
   "description": "VS Admin Panel",
   "author": "cristijora <joracristi@gmail.com>",
+  "homepage": "https://anhhuy1020.github.io/vehicles-saver-admin-panel/",
   "scripts": {
     "serve": "vue-cli-service serve --open",
     "build": "vue-cli-service build",
