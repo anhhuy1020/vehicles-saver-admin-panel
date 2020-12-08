@@ -155,12 +155,12 @@ export default {
     color: #D6C624;
 }
 .demand-status-HANDLING {
-    color: #D6C624;
+    color: #2453d6;
 }
 .demand-status-PAYING {
-    color: #D6C624;
+    color: #d69e24;
 }
-.demand-status-CANCEL {
+.demand-status-CANCELED {
     color: crimson;
 }
 .demand-status-COMPLETED {
