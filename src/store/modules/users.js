@@ -33,7 +33,18 @@ const actions = {
                 dispatch('alert/error', error, { root: true });
             }
         );
-
+    },
+    create({ dispatch, commit }, user) {
+        console.log("users create", user);
+        userService.create(user)
+        .then(
+            () => {
+                router.push({path: 'user-manage'});
+            },
+            error => {
+                dispatch('alert/error', error, { root: true });
+            }
+        );
     }
 };
 

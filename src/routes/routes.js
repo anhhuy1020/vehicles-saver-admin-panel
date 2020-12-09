@@ -6,6 +6,7 @@ import NotFound from '../pages/NotFoundPage.vue'
 import Overview from 'src/pages/Overview.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
 import UserDetail from 'src/pages/UserDetail.vue'
+import UserCreate from 'src/pages/UserCreate.vue'
 import Login from 'src/pages/Login.vue'
 import UserManage from 'src/pages/UserManage.vue'
 import CustomerManage from 'src/pages/CustomerManage.vue'
@@ -63,10 +64,16 @@ const routes = [
         name: 'Feedback Manage',
         component: FeedbackManage
       },
-      { 
+      {
         path: 'user-detail',
         name: 'User Detail',
         component: UserDetail,
+        props: true
+      },
+      {
+        path: 'user-create',
+        name: 'User Create',
+        component: UserCreate,
         props: true
       },
     ]

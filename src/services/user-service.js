@@ -8,6 +8,7 @@ export const userService = {
     login,
     logout,
     getAll,
+    create,
     getById,
     update,
     delete: _delete
@@ -57,6 +58,17 @@ function getById(id) {
     };
 
     return fetch(`${BASE_URL}/user-detail/:id?id=${id}`, requestOptions).then(handleResponse);
+}
+
+function create(user) {
+    console.log("createUser: ", user)
+    const requestOptions = {
+        method: 'POST',
+        headers: { ...authHeader(), 'Content-Type': 'application/json' },
+        body: JSON.stringify(user)
+    };
+
+    return fetch(`${BASE_URL}/users/create`, requestOptions).then(handleResponse);
 }
 
 function update(user) {

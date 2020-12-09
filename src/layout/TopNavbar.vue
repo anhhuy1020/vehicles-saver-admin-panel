@@ -16,9 +16,9 @@
       <div class="collapse navbar-collapse justify-content-end">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              Log out
-            </a>
+             <button @click="onLogout" class="btn btn-danger">
+                Logout
+            </button>
           </li>
         </ul>
       </div>
@@ -30,6 +30,7 @@ import {
     mapState,
     mapActions
 } from 'vuex'
+import router from '../routes/router'
 
   export default {
     computed: {
@@ -60,7 +61,10 @@ import {
         this.$sidebar.displaySidebar(false)
       },
       ...mapActions('account', ['logout']),
-
+      onLogout(){
+        this.logout();
+        router.push({path: 'login'})
+      }
     }
   }
 
