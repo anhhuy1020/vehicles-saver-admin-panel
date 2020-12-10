@@ -35,7 +35,8 @@
 
                 </card>
             </div>
-            <div class="col-xl-6">
+
+            <div class="col-xl-6"  v-if="demandDetail.demand.partnerId!=''">
                 <card class="card-user">
                     <div class="row">
                         <div class="col-xl-3">
@@ -82,6 +83,21 @@
 
                 </card>
             </div>
+            <div class="col-xl-6"  v-if="demandDetail.demand.partnerId==''">
+                <card class="card-user">
+                    <div class="row">
+                        <div class="col-xl-9">
+                            <div class="row">
+                                <div class="col-xl-9">
+                                    <h3 class="Title">Partner </h3>
+                                    <h5 class="card-title status SEARCHING_PARTNER">SEARCHING...</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </card>
+            </div>
         </div>
         <div class="row">
             <div class="col-xl-12">
@@ -105,7 +121,7 @@
                                         <div class="col-xl-6">
                                             <div slot="content">
                                                 <p class="card-category">Status</p>
-                                                <h5 class="card-title status COMPLETED">{{ demandDetail.demand.demandStatus }}</h5>
+                                                <h5 :class="'card-title status ' + demandDetail.demand.demandStatus">{{ demandDetail.demand.demandStatus }}</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -179,75 +195,84 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-9">
+
+                    <div class="row" v-if="demandDetail.demand.billId != ''">
+                        <div class="col-xl-12">
                             <div class="row">
                                 <div class="col-xl-9">
-                                    <h3 class="title">Bill</h3>
+                                    <div class="row">
+                                        <div class="col-xl-9">
+                                            <h3 class="title">Bill</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xl-12">
+                                            <div slot="content">
+                                                <p class="card-category">Items</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div slot="content">
+                                                <b-table thead-class="b-table-thead" thead-tr-class="b-table-thead-tr" :items="demandDetail.bill.items" :fields="billFields" responsive="sm" class="table table-hover table-primary table-light table-sm">
+                                                    <template v-slot:cell(cost)="data">
+                                                        <span>
+                                                            {{data.item.cost + ' đ'}}
+                                                        </span>
+                                                    </template>
+                                                </b-table>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-xl-12">
+                                <div class="col-xl-5">
                                     <div slot="content">
-                                        <p class="card-category">Items</p>
+                                        <p class="card-category">Fee</p>
                                     </div>
                                 </div>
-                                <div class="col-xl-12">
+                                <div class="col-xl-6">
                                     <div slot="content">
-                                        <b-table thead-class="b-table-thead" thead-tr-class="b-table-thead-tr" :items="demandDetail.bill.items" :fields="billFields" responsive="sm" class="table table-hover table-primary table-light table-sm">
-                                            <template v-slot:cell(cost)="data">
-                                                <span>
-                                                    {{data.item.cost + ' đ'}}
-                                                </span>
-                                            </template>
-                                        </b-table>
+                                        <h5 class="card-title">{{ demandDetail.bill.fee + " đ"}}</h5>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-5">
+                                    <div slot="content">
+                                        <p class="card-category">Total</p>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6">
+                                    <div slot="content">
+                                        <h5 class="card-title">{{ calTotalCost(demandDetail.bill) + " đ"}}</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-xl-5">
-                            <div slot="content">
-                                <p class="card-category">Fee</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div slot="content">
-                                <h5 class="card-title">{{ demandDetail.bill.fee + " đ"}}</h5>
-                            </div>
-                        </div>
 
-                        <div class="col-xl-5">
-                            <div slot="content">
-                                <p class="card-category">Total</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-6">
-                            <div slot="content">
-                                <h5 class="card-title">{{ calTotalCost(demandDetail.bill) + " đ"}}</h5>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-xl-9">
+                    <div class="row" v-if="demandDetail.demand.feedbackId != ''">
+                        <div class="col-xl-12">
                             <div class="row">
                                 <div class="col-xl-9">
-                                    <h3 class="title">Feedback </h3>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-xl-8">
-                                    <div slot="content">
-                                        <p class="card-category">Rating</p>
-                                        <h5 class="card-title">{{ demandDetail.feedback.rating }}</h5>
+                                    <div class="row">
+                                        <div class="col-xl-9">
+                                            <h3 class="title">Feedback </h3>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-12">
-                                    <div slot="content">
-                                        <p class="card-category">Comment</p>
-                                        <h5 class="card-title">{{ demandDetail.feedback.comment }}</h5>
+                                    <div class="row">
+                                        <div class="col-xl-8">
+                                            <div slot="content">
+                                                <p class="card-category">Rating</p>
+                                                <h5 class="card-title">{{ demandDetail.feedback.rating }}</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-12">
+                                            <div slot="content">
+                                                <p class="card-category">Comment</p>
+                                                <h5 class="card-title">{{ demandDetail.feedback.comment }}</h5>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
