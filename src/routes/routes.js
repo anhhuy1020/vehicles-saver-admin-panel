@@ -4,14 +4,12 @@ import NotFound from '../pages/NotFoundPage.vue'
 
 // Admin pages
 import Overview from 'src/pages/Overview.vue'
-import UserProfile from 'src/pages/UserProfile.vue'
 import UserDetail from 'src/pages/UserDetail.vue'
 import UserCreate from 'src/pages/UserCreate.vue'
 import Login from 'src/pages/Login.vue'
 import UserManage from 'src/pages/UserManage.vue'
-import CustomerManage from 'src/pages/CustomerManage.vue'
-import PartnerManage from 'src/pages/PartnerManage.vue'
 import DemandManage from 'src/pages/DemandManage.vue'
+import DemandDetail from 'src/pages/DemandDetail.vue'
 import FeedbackManage from 'src/pages/FeedbackManage.vue'
 
 const routes = [
@@ -35,11 +33,6 @@ const routes = [
         component: Overview
       },
       {
-        path: 'profile',
-        name: 'Profile',
-        component: UserProfile
-      },
-      {
         path: 'user-manage',
         name: 'User Manage',
         component: UserManage,
@@ -48,21 +41,18 @@ const routes = [
         path: 'demand-manage',
         name: 'Demand Manage',
         component: DemandManage
-      },
-      {
-        path: 'customer-manage',
-        name: 'Customer Manage',
-        component: CustomerManage
-      },
-      {
-        path: 'partner-manage',
-        name: 'partner Manage',
-        component: PartnerManage
+
       },
       {
         path: 'feedback-manage',
         name: 'Feedback Manage',
         component: FeedbackManage
+      },
+      {
+        path: 'demand-detail',
+        name: 'Demand Detail',
+        component: DemandDetail,
+        props: true
       },
       {
         path: 'user-detail',

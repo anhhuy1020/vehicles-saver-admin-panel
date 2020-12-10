@@ -5,9 +5,9 @@
             <div class="row">
                 <div class="col-12">
                     <card>
-                            <button @click="navigateToUserCreatePage" class="btn btn-warning">
-                                    CreateUser
-                            </button>
+                        <button @click="createUser" class="btn btn-warning">
+                            CreateUser
+                        </button>
                         <b-table striped hover thead-class="b-table-thead" thead-tr-class="b-table-thead-tr" :items="users.users" :fields="fields" responsive="sm" class="table table-hover table-primary table-light table-sm">
                             <template v-slot:cell(_)="data">
                                 <button @click="viewDetail(data.item._id)" class="btn btn-info">
@@ -18,7 +18,7 @@
                             <template v-slot:cell(role)="data">
                                 <span :class="['user-role-' + data.item.role]">
                                     {{ROLE[data.item.role]}}
-                                    </span>
+                                </span>
                             </template>
 
                         </b-table>
@@ -66,17 +66,28 @@ export default {
                     sortable: true,
                     label: "Role"
                 },
-                {key: '_', sortable: false, label: "Detail"},
+                {
+                    key: '_',
+                    sortable: false,
+                    label: "Detail"
+                },
             ]
         }
     },
     methods: {
         ...mapActions('users', ['getAll']),
-        viewDetail(userId){
-            router.push({ path: 'user-detail', query: { id: userId } })
+        viewDetail(userId) {
+            router.push({
+                path: 'user-detail',
+                query: {
+                    id: userId
+                }
+            })
         },
-        navigateToUserCreatePage(){
-            router.push({ path: 'user-create'})
+        createUser() {
+            router.push({
+                path: 'user-create'
+            })
         }
     },
     computed: {
@@ -92,12 +103,15 @@ export default {
 .user-role-0 {
     color: crimson;
 }
+
 .user-role-1 {
-    color: #D6C624 ;
+    color: #D6C624;
 }
-.user-role-2     {
-    color: #24D66A ;
+
+.user-role-2 {
+    color: #24D66A;
 }
+
 .c-sliding-pagination__list li {
     display: inline-block !important;
     height: 40px;

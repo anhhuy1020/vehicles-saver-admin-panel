@@ -23,13 +23,14 @@ function getAll() {
 }
 
 
+
 function getById(id) {
     const requestOptions = {
         method: 'GET',
         headers: authHeader()
     };
 
-    return fetch(`${BASE_URL}/demands/${id}`, requestOptions).then(handleResponse);
+    return fetch(`${BASE_URL}/demand-detail/:id?id=${id}`, requestOptions).then(handleResponse);
 }
 
 function update(user) {

@@ -5,31 +5,17 @@
             <div class="row">
                 <div class="col-12">
                     <card>
-                        <b-table thead-class="b-table-thead" thead-tr-class="b-table-thead-tr" :items="demands" :fields="fields" responsive="sm" class="table table-hover table-primary table-light table-sm">
+                        <b-table striped hover thead-class="b-table-thead" thead-tr-class="b-table-thead-tr" :items="demands" :fields="fields" responsive="sm" class="table table-hover table-primary table-light table-sm">
                             <template v-slot:cell(_)="data">
-                                <button @click="viewSupport(data.item._id, data.item.userId)" class="btn btn-info">
+                                <button @click="viewDetail(data.item._id)" class="btn btn-info">
                                     View
                                 </button>
                             </template>
 
-                            <template v-slot:cell(status)="data">
-                                <b-badge :variant="renderStatus(data.item.status).variant"> {{renderStatus(data.item.status).text }}</b-badge>
-                            </template>
-
-                            <template v-slot:cell(dateUpdate)="data">
-                                {{new Date(data.item.dateUpdate || data.item.dateStart).toDateString()}}
-                            </template>
-
-                            <template v-slot:cell(dateStart)="data">
-                                {{new Date(data.item.dateStart || data.item.dateStart).toDateString()}}
-                            </template>
-
-                            <template v-slot:cell(type)="data">
-                                {{listTypeLabel[data.item.type + 1]}}
-                            </template>
-
-                            <template v-slot:cell(isRead)="data">
-                                {{data.item.isRead? "YES" : "NO"}}
+                            <template v-slot:cell(demandStatus)="data">
+                                <span :class="['demand-status-' + data.item.demandStatus]">
+                                    {{data.item.demandStatus}}
+                                </span>
                             </template>
 
                         </b-table>
@@ -43,6 +29,8 @@
 </template>
 
 <script>
+import router from '../routes/router'
+
 import {
     mapState,
     mapActions
@@ -55,11 +43,6 @@ export default {
                     key: '_id',
                     sortable: true,
                     label: "Id"
-                },
-                {
-                    key: 'addressDetail',
-                    sortable: true,
-                    label: "Address detail"
                 },
                 {
                     key: 'vehicleType',
@@ -80,12 +63,25 @@ export default {
                     key: 'createdDate',
                     sortable: true,
                     label: "Created date"
-                }
+                },
+                {
+                    key: '_',
+                    sortable: false,
+                    label: "Detail"
+                },
             ]
         }
     },
     methods: {
         ...mapActions('demands', ['getAll']),
+        viewDetail(demandId) {
+            router.push({
+                path: 'demand-detail',
+                query: {
+                    id: demandId
+                }
+            })
+        },
     },
     computed: {
         ...mapState('demands', ['demands'])
@@ -98,6 +94,26 @@ export default {
 </script>
 
 <style>
+.demand-status-SEARCHING_PARTNER {
+    color: #D6C624;
+}
+
+.demand-status-HANDLING {
+    color: #2453d6;
+}
+
+.demand-status-PAYING {
+    color: #d69e24;
+}
+
+.demand-status-CANCELED {
+    color: crimson;
+}
+
+.demand-status-COMPLETED {
+    color: #24D66A;
+}
+
 .c-sliding-pagination__list li {
     display: inline-block !important;
     height: 40px;

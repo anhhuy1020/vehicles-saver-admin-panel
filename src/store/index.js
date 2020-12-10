@@ -4,8 +4,6 @@ import Vuex from 'vuex';
 import { account } from './modules/account';
 import { alert } from './modules/alert';
 import { users } from './modules/users';
-import { customers } from './modules/customers';
-import { partners } from './modules/partners';
 import { demands } from './modules/demands';
 import { feedbacks } from './modules/feedbacks';
 

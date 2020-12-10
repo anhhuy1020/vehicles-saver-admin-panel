@@ -9,8 +9,8 @@
           <div class="col-xl-7">
             <div class="row">
               <div class="col-xl-9">
-                <h3 class="title">{{ userDetail.user.name }}</h3>
-                <p>CUSTOMER</p>
+                <h4 class="title">{{ userDetail.user.name }}</h4>
+                <p>{{ROLE[userDetail.user.role]}}</p>
               </div>
               <div class="col-xl-1 ">
                 <br />
@@ -55,6 +55,7 @@
               <b-table
                 thead-class="b-table-thead"
                 thead-tr-class="b-table-thead-tr"
+                 striped hover
                 :items="userDetail.history"
                 :fields="demandFields"
                 responsive="sm"
@@ -64,7 +65,7 @@
                                 <span :class="['demand-status-' + data.item.demandStatus]">
                                     {{data.item.demandStatus}}
                                     </span>
-                            </template>
+                    </template>
               </b-table>
             </card>
           </div>
@@ -128,6 +129,7 @@ export default {
           sortable: true,
           label: "Created date",
         },
+        {key: '_', sortable: false, label: "Detail"},
       ],
     };
   },
