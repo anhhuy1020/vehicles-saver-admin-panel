@@ -1,9 +1,9 @@
 {
     "mode": "release",
-    "dev": {
+    "release": {
         "SERVER_URL": "https://vehicle-saver.herokuapp.com/admin"
     },
-    "release": {
+    "dev": {
         "SERVER_URL": "http://localhost:3002/admin"
     }
 }
