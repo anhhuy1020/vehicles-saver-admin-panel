@@ -14,8 +14,6 @@ export const store = new Vuex.Store({
     account,
     alert,
     users,
-    customers,
-    partners,
     demands,
     feedbacks
   }
